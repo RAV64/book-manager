@@ -20,24 +20,20 @@ export default function BookForm(props: bookFormProps) {
 	const handleCreateBook = (event: SyntheticEvent) => {
 		event.preventDefault();
 		props.createOneBook(book);
-		clearBook();
 	};
 
 	const handleDeleteBook = (event: SyntheticEvent) => {
 		event.preventDefault();
 		props.deleteOneBook(book);
-		clearBook();
 	};
 
 	const handleUpdateBook = (event: SyntheticEvent) => {
 		event.preventDefault();
 		props.updateOneBook(book);
-		clearBook();
 	};
 
 	const clearBook = () => {
 		props.setSelectedBook({ title: "", author: "", description: "", id: "" });
-		setBook({ title: "", author: "", description: "", id: "" });
 	};
 
 	return (
