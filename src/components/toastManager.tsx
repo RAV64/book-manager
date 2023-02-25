@@ -36,7 +36,7 @@ function successToast(
 ) {
 	return (
 		<div
-			className="flex items-center w-80 p-4 mb-4 text-black  bg-[#a6e3a1] rounded-lg shadow"
+			className="flex items-center w-80 p-4 mb-4 text-black bg-[#a6e3a1] rounded-lg shadow"
 			role="alert"
 			key={index}
 		>
