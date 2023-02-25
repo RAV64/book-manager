@@ -20,7 +20,7 @@ export default function ListBooks(props: listBooksProps) {
 									<div className="font-medium truncate w-3/4">{book.title}</div>
 									<div className="text-sm truncate w-3/4">{book.author}</div>
 								</div>
-								<div className="flex flex-col w-10 justify-center items-center pl-2">
+								<div className="flex flex-col w-10 justify-center items-center pl-2 invisible sm:visible">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"

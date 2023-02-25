@@ -37,7 +37,8 @@ export default function BookForm(props: bookFormProps) {
 	};
 
 	return (
-		<form className="flex flex-col justify-center w-full">
+		<div className="flex flex-col justify-center w-full">
+			{/* form fields with corresponding labels */}
 			<div className="flex flex-col md:flex-row">
 				<div className="flex flex-col flex-1 p-2">
 					<label
@@ -88,27 +89,24 @@ export default function BookForm(props: bookFormProps) {
 				</div>
 			</div>
 
+			{/* show different buttons based on state of the form */}
 			<div className="text-sm">
 				{book.id ? (
-					// Buttons here need to be buttons to not submit form
 					<div className="flex flex-row">
 						<button
 							className="bg-[#a6e3a1] w-20 rounded border-solid appearance-none shadow m-2 hover:bg-gray-200"
-							type="button"
 							onClick={handleUpdateBook}
 						>
 							Edit
 						</button>
 						<button
 							className="bg-[#f38ba8] w-20 rounded border-solid appearance-none shadow m-2 hover:bg-gray-200"
-							type="button"
 							onClick={handleDeleteBook}
 						>
 							Delete
 						</button>
 						<button
 							className="bg-[#9399b2] w-20 rounded border-solid appearance-none shadow m-2 hover:bg-gray-200"
-							type="button"
 							onClick={clearBook}
 						>
 							Cancel
@@ -119,7 +117,6 @@ export default function BookForm(props: bookFormProps) {
 					<div className="flex flex-row">
 						<button
 							className="bg-[#a6e3a1] w-20 rounded border-solid appearance-none shadow m-2 hover:bg-gray-200"
-							type="button"
 							onClick={handleCreateBook}
 						>
 							Save new
@@ -128,7 +125,6 @@ export default function BookForm(props: bookFormProps) {
 						{(book.author || book.title || book.description) && (
 							<button
 								className="bg-[#9399b2] w-20 rounded border-solid appearance-none shadow m-2 hover:bg-gray-200"
-								type="button"
 								onClick={clearBook}
 							>
 								Clear
@@ -137,6 +133,6 @@ export default function BookForm(props: bookFormProps) {
 					</div>
 				)}
 			</div>
-		</form>
+		</div>
 	);
 }
