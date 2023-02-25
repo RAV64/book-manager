@@ -5,8 +5,6 @@ import { type CreateBook } from "~/schema/book.schema";
 import { api } from "~/utils/api";
 import BookForm from "~/components/bookForm";
 import { useState } from "react";
-import { type TRPCClientErrorLike } from "@trpc/client";
-import { type AppRouter } from "~/server/api/root";
 import Toastmanager, { type Toast } from "~/components/toastManager";
 
 const emptyBook = {
@@ -22,23 +20,33 @@ const Home: NextPage = () => {
 
 	const { data: allBooks, refetch } = api.book.getAll.useQuery();
 
-	const handleError = (err: TRPCClientErrorLike<AppRouter>) => {
-		// there must be a better way..
-		const errors: Toast[] = JSON.parse(err.message).map(
-			(e: { message: string }): Toast => {
-				return { type: "ERROR", message: e.message };
-			},
-		);
-		setToasts([...toasts, ...errors]);
+	const handleError = (err: { message: string }) => {
+		try {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+			const errors: Toast[] = JSON.parse(err.message).map(
+				(e: { message: string }): Toast => {
+					return { type: "ERROR", message: e.message };
+				},
+			);
+			setToasts([...toasts, ...errors]);
+		} catch (err: unknown) {
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+			throw Error(`Unknown error while parsing toast error message: ${err}`);
+		}
+	};
+
+	const refresh = () => {
+		void refetch();
+		setSelectedBook(emptyBook);
 	};
 
 	const bookCreateOne = api.book.createOne.useMutation({
 		onSuccess: (e) => {
 			setToasts([
 				...toasts,
-				{ type: "SUCCESS", message: `Succesfully added ${e.title}` },
+				{ type: "SUCCESS", message: `Created ${e.title}` },
 			]);
-			void refetch();
+			refresh();
 		},
 		onError: handleError,
 	});
@@ -47,9 +55,9 @@ const Home: NextPage = () => {
 		onSuccess: (e) => {
 			setToasts([
 				...toasts,
-				{ type: "SUCCESS", message: `Succesfully deleted ${e.title}` },
+				{ type: "SUCCESS", message: `Deleted ${e.title}` },
 			]);
-			void refetch();
+			refresh();
 		},
 		onError: handleError,
 	});
@@ -58,9 +66,9 @@ const Home: NextPage = () => {
 		onSuccess: (e) => {
 			setToasts([
 				...toasts,
-				{ type: "SUCCESS", message: `Succesfully updated ${e.title}` },
+				{ type: "SUCCESS", message: `Updated ${e.title}` },
 			]);
-			void refetch();
+			refresh();
 		},
 		onError: handleError,
 	});
@@ -70,7 +78,8 @@ const Home: NextPage = () => {
 	};
 
 	const createOneBook = (book: CreateBook) => {
-		bookCreateOne.mutate({ book });
+		const x = bookCreateOne.mutate({ book });
+		console.log(x);
 	};
 
 	const updateOneBook = (book: Book) => {
