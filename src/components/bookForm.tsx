@@ -1,6 +1,6 @@
 import { type CreateBook } from "~/schema/book.schema";
 import { type Book } from "@prisma/client";
-import { SyntheticEvent, useEffect, useState } from "react";
+import { type SyntheticEvent, useEffect, useState } from "react";
 
 type bookFormProps = {
 	createOneBook: (book: CreateBook) => void;
