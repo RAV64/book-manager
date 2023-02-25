@@ -3,12 +3,11 @@ import { type Book } from "@prisma/client";
 import ListBooks from "~/components/listBooks";
 import { type CreateBook } from "~/schema/book.schema";
 import { api } from "~/utils/api";
-import PageHead from "~/components/pageHead";
 import BookForm from "~/components/bookForm";
 import { useState } from "react";
-import { TRPCClientErrorLike } from "@trpc/client";
-import { AppRouter } from "~/server/api/root";
-import Toastmanager, { Toast } from "~/components/toastManager";
+import { type TRPCClientErrorLike } from "@trpc/client";
+import { type AppRouter } from "~/server/api/root";
+import Toastmanager, { type Toast } from "~/components/toastManager";
 
 const emptyBook = {
 	title: "",
@@ -25,9 +24,11 @@ const Home: NextPage = () => {
 
 	const handleError = (err: TRPCClientErrorLike<AppRouter>) => {
 		// there must be a better way..
-		const errors: Toast[] = JSON.parse(err.message).map((e: any): Toast => {
-			return { type: "ERROR", message: e.message };
-		});
+		const errors: Toast[] = JSON.parse(err.message).map(
+			(e: { message: string }): Toast => {
+				return { type: "ERROR", message: e.message };
+			},
+		);
 		setToasts([...toasts, ...errors]);
 	};
 
@@ -37,7 +38,7 @@ const Home: NextPage = () => {
 				...toasts,
 				{ type: "SUCCESS", message: `Succesfully added ${e.title}` },
 			]);
-			refetch();
+			void refetch();
 		},
 		onError: handleError,
 	});
@@ -48,7 +49,7 @@ const Home: NextPage = () => {
 				...toasts,
 				{ type: "SUCCESS", message: `Succesfully deleted ${e.title}` },
 			]);
-			refetch();
+			void refetch();
 		},
 		onError: handleError,
 	});
@@ -59,7 +60,7 @@ const Home: NextPage = () => {
 				...toasts,
 				{ type: "SUCCESS", message: `Succesfully updated ${e.title}` },
 			]);
-			refetch();
+			void refetch();
 		},
 		onError: handleError,
 	});
