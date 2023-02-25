@@ -37,7 +37,8 @@ const Home: NextPage = () => {
 
 	const refresh = () => {
 		void refetch();
-		setSelectedBook(emptyBook);
+		// deconstruct emptyBook to always refresh state
+		setSelectedBook({ ...emptyBook });
 	};
 
 	const bookCreateOne = api.book.createOne.useMutation({
@@ -78,8 +79,7 @@ const Home: NextPage = () => {
 	};
 
 	const createOneBook = (book: CreateBook) => {
-		const x = bookCreateOne.mutate({ book });
-		console.log(x);
+		bookCreateOne.mutate({ book });
 	};
 
 	const updateOneBook = (book: Book) => {
