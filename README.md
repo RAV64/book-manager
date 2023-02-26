@@ -1,6 +1,6 @@
-# Full stack,  Fully E2E typesafe, Book collection manager
+# Full stack - Fully E2E typesafe - Book collection manager
 
-### Quickstart:
+### Quickstart
 
 ```
 git clone https://github.com/RAV64/book-manager
@@ -12,8 +12,51 @@ npm run dev
 ```
 `npm run dev` is the only command to repeat when re-running the application after initial setup
 
-### Screenshot:
+### Screenshot
+
 <img width="812" alt="image" src="https://user-images.githubusercontent.com/73443709/221399295-7ab460a4-bf91-4397-a438-46472c5195ad.png">
+
+### General project structure
+
+```
+prisma
+  └─ schema.prisma              # Database structure & config
+src
+  ├─ pages                      # Frontend
+  |   ├─ api
+  |   |   └─ trpc               # http://localhost:3000/api/trpc/*
+  |   |       └─ [trpc].ts      # API handler (Router, Context)
+  |   ├─ _app.tsx               # App layout
+  |   └─ index.tsx              # Index page (http://localhost:3000/)
+  ├─ components                 # Custom components
+  |   └─ *
+  ├─ server                     # Backend
+  |   ├─ db.ts                  # Prisma client
+  |   └─ api
+  |       ├─ routers
+  |       |   └─ book.router.ts # Database router for Book
+  |       ├─ trpc.ts            # Init tRPC
+  |       └─ root.ts            # Add routers to AppRouter (Book router is added here)
+  ├─ schema
+  |   └─ book.schema.ts         # Book's schema
+  ├─ utils
+  |   └─ api.ts                 # Bridge between frontend & backend with AppRouter
+  ├─ styles
+  |   └─ globals.css            # Global styles & Tailwind
+*config*                        # Config files
+.env                            # *Need to be manually created* env vars (e.g. for database)
+```
+
+### Database schema
+
+```
+model Book {
+    id          String @unique @default(uuid())
+    title       String
+    author      String
+    description String
+}
+```
 
 ## Stack consists of
 - [Next.js](https://nextjs.org)
