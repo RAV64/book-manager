@@ -42,13 +42,13 @@ export default function BookForm(props: bookFormProps) {
 			<div className="flex flex-col md:flex-row">
 				<div className="flex flex-col flex-1 p-2">
 					<label
-						className="block text-gray-700 text-sm font-bold mb-2"
+						className="block text-sm font-bold mb-2"
 						htmlFor="title"
 					>
 						Title
 					</label>
 					<input
-						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
 						id="title"
 						type="text"
 						placeholder="Title of the book"
@@ -57,13 +57,13 @@ export default function BookForm(props: bookFormProps) {
 					/>
 
 					<label
-						className="block text-gray-700 text-sm font-bold my-2"
+						className="block text-sm font-bold my-2"
 						htmlFor="author"
 					>
 						Author
 					</label>
 					<input
-						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
 						id="author"
 						type="text"
 						placeholder="Author's name"
@@ -74,13 +74,13 @@ export default function BookForm(props: bookFormProps) {
 
 				<div className="flex flex-col flex-1 p-2">
 					<label
-						className="block text-gray-700 text-sm font-bold mb-2"
+						className="block text-sm font-bold mb-2"
 						htmlFor="description"
 					>
 						Description
 					</label>
 					<textarea
-						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[100%]"
+						className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline h-[100%]"
 						id="description"
 						placeholder="The book's description"
 						value={book ? book.description : ""}

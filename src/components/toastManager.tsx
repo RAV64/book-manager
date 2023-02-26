@@ -36,11 +36,11 @@ function successToast(
 ) {
 	return (
 		<div
-			className="flex items-center w-80 p-4 mb-4 text-black bg-[#a6e3a1] rounded-lg shadow"
+			className="flex items-center w-80 p-4 mb-4 bg-[#a6e3a1] rounded-lg shadow"
 			role="alert"
 			key={index}
 		>
-			<div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-black bg-green-100 rounded-lg">
+			<div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg">
 				<svg
 					aria-hidden="true"
 					className="w-5 h-5"
@@ -58,7 +58,7 @@ function successToast(
 			<div className="ml-3 text-sm font-normal truncate">{msg}</div>
 			<button
 				type="button"
-				className="ml-auto -mx-1.5 -my-1.5 bg-white text-black hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8"
+				className="ml-auto -mx-1.5 -my-1.5 bg-white rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8"
 				aria-label="Close"
 				onClick={() => setToasts(toasts.filter((_t, i) => i !== index))}
 			>
@@ -88,11 +88,11 @@ function errorToast(
 ) {
 	return (
 		<div
-			className="flex items-center w-80 p-4 mb-4 text-black bg-[#eba0ac] rounded-lg shadow"
+			className="flex items-center w-80 p-4 mb-4 bg-[#eba0ac] rounded-lg shadow"
 			role="alert"
 			key={index}
 		>
-			<div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-black bg-[#f38ba8] rounded-lg">
+			<div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 bg-[#f38ba8] rounded-lg">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -111,7 +111,7 @@ function errorToast(
 			<div className="ml-3 text-sm font-normal truncate">{msg}</div>
 			<button
 				type="button"
-				className="ml-auto -mx-1.5 -my-1.5 bg-white text-black hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8"
+				className="ml-auto -mx-1.5 -my-1.5 bg-white rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8"
 				aria-label="Close"
 				onClick={() => setToasts(toasts.filter((_t, i) => i !== index))}
 			>

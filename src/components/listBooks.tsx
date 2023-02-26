@@ -8,7 +8,7 @@ type listBooksProps = {
 export default function ListBooks(props: listBooksProps) {
 	return (
 		<div className="rounded overflow-scroll h-full w-[97.5%] shadow-2xl">
-			<div className="flex flex-col mx-auto items-center justify-center bg-white shadow text-gray-800 overflow-hidden">
+			<div className="flex flex-col mx-auto items-center justify-center bg-white shadow overflow-hidden">
 				<ul className="flex flex-col divide-y w-full">
 					{props.books.map((book: Book) => (
 						<li className="flex-1 flex-row" key={book.id}>

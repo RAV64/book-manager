@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gradient-to-b from-[#cba6f7] to-[#f5c2e7] font-mono
+  @apply bg-gradient-to-b from-[#cba6f7] to-[#f5c2e7] font-mono text-black
 }
