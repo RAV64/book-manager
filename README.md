@@ -10,6 +10,7 @@ npm install
 npx prisma db push
 npm run dev
 ```
+`npm run dev` is the only command to repeat when re-running the application after initial setup
 
 ### Screenshot:
 <img width="812" alt="image" src="https://user-images.githubusercontent.com/73443709/221399295-7ab460a4-bf91-4397-a438-46472c5195ad.png">
