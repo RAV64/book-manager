@@ -41,10 +41,7 @@ export default function BookForm(props: bookFormProps) {
 			{/* form fields with corresponding labels */}
 			<div className="flex flex-col md:flex-row">
 				<div className="flex flex-col flex-1 p-2">
-					<label
-						className="block text-sm font-bold mb-2"
-						htmlFor="title"
-					>
+					<label className="block text-sm font-bold mb-2" htmlFor="title">
 						Title
 					</label>
 					<input
@@ -56,10 +53,7 @@ export default function BookForm(props: bookFormProps) {
 						onChange={(e) => setBook({ ...book, title: e.target.value })}
 					/>
 
-					<label
-						className="block text-sm font-bold my-2"
-						htmlFor="author"
-					>
+					<label className="block text-sm font-bold my-2" htmlFor="author">
 						Author
 					</label>
 					<input
@@ -73,10 +67,7 @@ export default function BookForm(props: bookFormProps) {
 				</div>
 
 				<div className="flex flex-col flex-1 p-2">
-					<label
-						className="block text-sm font-bold mb-2"
-						htmlFor="description"
-					>
+					<label className="block text-sm font-bold mb-2" htmlFor="description">
 						Description
 					</label>
 					<textarea
@@ -111,7 +102,9 @@ export default function BookForm(props: bookFormProps) {
 						>
 							Cancel
 						</button>
-						<div className="p-2 text-right flex-1">Book id: {book.id}</div>
+						<div className="p-2 text-right flex-1" id="book-id">
+							Book id: {book.id}
+						</div>
 					</div>
 				) : (
 					<div className="flex flex-row">
