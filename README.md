@@ -9,7 +9,6 @@ cp .env.example .env
 npm install
 npx prisma db push
 npm run dev
-
 ```
 
 ## Stack consists of
