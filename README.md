@@ -67,7 +67,7 @@ model Book {
 
 - Tests can be ran with `npx playwright test`
 - Test reports from latest test can be viewed with `npx playwright show-report`
-- Tests can't be ran while the app is running since Playwright needs to enable it for itself
+- Tests can't be ran while the app is running since Playwright needs to start it itself
 
 ## Stack consists of
 - [Next.js](https://nextjs.org)
