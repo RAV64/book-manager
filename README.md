@@ -1,5 +1,17 @@
 # Full stack,  Fully E2E typesafe, Book collection manager
 
+Quickstart:
+
+```
+git clone https://github.com/RAV64/book-manager
+cd book-manager
+cp .env.example .env
+npm install
+npx prisma db push
+npm run dev
+
+```
+
 ## Stack consists of
 - [Next.js](https://nextjs.org)
 - [tRPC](https://trpc.io)
